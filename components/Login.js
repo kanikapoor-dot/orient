@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/Login.css";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -8,6 +8,7 @@ export default class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
+      usertype:"",
     };
   }
 
@@ -15,28 +16,30 @@ export default class Login extends React.Component {
     e.preventDefault();
 
     const body = JSON.stringify({
-      email:this.state.email,
-      password:this.state.password
-    })
+      email: this.state.email,
+      password: this.state.password,
+      usertype: this.state.usertype,
+    });
 
-    fetch("",{
+    fetch("http://localhost:4000/login", {
       method: "POST",
-      headers:{
-        "Content-type":"application/json"
+      headers: {
+        "Content-type": "application/json",
       },
-      body
+      body,
     })
-    .then(responser => responser.json())
-    .then(res => {
-      if (res.err) {
-        alert("username password fail");
-      } else {
-        console.log(res)
-        alert("login succesfully");
-      }
-    })
-    .catch((err) => console.log(err));
-  }
+      .then((responser) => responser.json())
+      .then((res) => {
+        if (res.err) {
+          console.log(res)
+          alert("Username Password Failed!");
+        } else {
+          console.log(res);
+          alert("Login Succesfully");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   render() {
     return (
@@ -66,14 +69,42 @@ export default class Login extends React.Component {
               }}
               required
             />
-            <input type="submit" value="submit" onClick={this.SubmitLogin}/>
+
+            <div className="radiobutton">
+              <div className="rad-patient">
+                <input
+                  type="radio"
+                  name="usertype"
+                  id="patient"
+                  value="patient"
+                  onClick={(e) => {
+                    this.setState({usertype: e.target.value});
+                  }}
+                />
+                <label>Patient</label>
+              </div>
+              <div className="rad-docter">
+                <input
+                  type="radio"
+                  name="usertype"
+                  id="docter"
+                  value="docter"
+                  onClick={(e) => {
+                    this.setState({usertype: e.target.value});
+                  }}
+                />
+                <label>Docter</label>
+              </div>
+            </div>
+
+            <input type="submit" value="submit" onClick={this.SubmitLogin} />
 
             <p>
-            Don't have an account{" "}
-            <Link to="/register" style={{ color: "violet" }}>
-              Register
-            </Link>
-          </p>
+              Don't have an account{" "}
+              <Link to="/register" style={{ color: "violet" }}>
+                Register
+              </Link>
+            </p>
           </form>
         </div>
       </div>

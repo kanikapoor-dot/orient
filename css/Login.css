@@ -39,6 +39,11 @@
     color: grey;
 }
 
+.radiobutton {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
 
 .login-form > input[type=submit] {
     background-color:rgb(163, 31, 175);
