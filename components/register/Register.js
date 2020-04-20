@@ -1,6 +1,6 @@
 import React from "react";
-import "../css/Register.css";
-import { Redirect } from 'react-router-dom'
+import "./Register.css";
+import { Redirect } from "react-router-dom";
 
 export default class Register extends React.Component {
   constructor(props) {
@@ -55,10 +55,10 @@ export default class Register extends React.Component {
   };
 
   checkLogedIn() {
-    if(this.state.isLoggedIn){
-     return <Redirect to="/login" />
-    }else {
-      return null
+    if (this.state.isLoggedIn) {
+      return <Redirect to="/login" />;
+    } else {
+      return null;
     }
   }
 
@@ -83,7 +83,6 @@ export default class Register extends React.Component {
             />
             <input
               type="text"
-              className="form-control"
               placeholder="abc@gmail.com"
               id="email"
               name="email"
@@ -93,34 +92,30 @@ export default class Register extends React.Component {
               required
             />
 
-            <div className="radios">
-              <div className="rad">
-                <label>
-                  <input
-                    type="radio"
-                    id="Patient"
-                    name="usertype"
-                    value="patient"
-                    onClick={(e) => {
-                      this.setState({ usertype: e.target.value });
-                    }}
-                  />
-                  Patient
-                </label>
+            <div className="radiobutton">
+              <div className="rad-patient">
+                <input
+                  type="radio"
+                  name="usertype"
+                  id="patient"
+                  value="patient"
+                  onClick={(e) => {
+                    this.setState({ usertype: e.target.value });
+                  }}
+                />
+                <label>Patient</label>
               </div>
-              <div className="rad">
-                <label>
-                  <input
-                    type="radio"
-                    id="Docter"
-                    name="usertype"
-                    value="docter"
-                    onClick={(e) => {
-                      this.setState({ usertype: e.target.value });
-                    }}
-                  />
-                  Docter
-                </label>
+              <div className="rad-docter">
+                <input
+                  type="radio"
+                  name="usertype"
+                  id="docter"
+                  value="docter"
+                  onClick={(e) => {
+                    this.setState({ usertype: e.target.value });
+                  }}
+                />
+                <label>Docter</label>
               </div>
             </div>
 
@@ -151,7 +146,7 @@ export default class Register extends React.Component {
             />
           </form>
         </div>
-       {this.checkLogedIn()}
+        {this.checkLogedIn()}
       </div>
     );
   }

@@ -1,0 +1,71 @@
+
+.d-contain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(7414.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;   
+}
+
+h1 {
+    color: whitesmoke;
+    margin-top: 20px ;
+}
+
+.D-form {
+    margin:30px auto ;
+    width: 50%;
+    background-color: rgba(93, 39, 104, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-horiz {
+    margin: auto;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.form-horiz > ::placeholder {
+    color: rgb(146, 143, 143);
+}
+
+
+textarea {
+    margin: 0 auto;
+    width: 80%;
+    height: 100px;
+}
+
+.workhour {
+display: flex;
+flex-direction: row;
+width: 80%;
+text-align: center;
+margin: 10px auto;
+}
+
+.form-horiz > input:focus {
+    border-bottom: rgb(211, 208, 211) 1px solid;
+}
+.workhour > input:focus {
+    border-bottom: rgb(211, 208, 211) 1px solid;
+}
+
+.form-horiz > input[type=submit] {
+    background-color: rgb(82, 7, 82);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+    .D-form{
+        width: 80%;
+    }
+}
+
+

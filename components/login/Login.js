@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Login.css";
+import './Login.css'
 import { Link } from "react-router-dom";
 
 export default class Login extends React.Component {
@@ -46,7 +46,7 @@ export default class Login extends React.Component {
       <div className="logincontain">
         <div className="login-contain">
           <div className="emty">
-            <h1>SIGN IN</h1>
+            <h1 style={{color:"grey"}}>SIGN IN</h1>
           </div>
           <form className="login-form">
             <input
