@@ -1,0 +1,29 @@
+.myHeader {
+    background-image: linear-gradient(to right,tomato,rgb(180, 61, 180),rgb(38, 38, 143));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    width: 100%;
+    z-index: 7;
+}
+
+.navbar > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline;
+}
+
+
+.navbar > ul > li {
+    float: left;
+    margin: 10px 20px;
+    padding: 10px;
+}
+
+.navbar > ul > li:hover {
+    background-color: whitesmoke;
+    color: rgb(99, 46, 197);
+}

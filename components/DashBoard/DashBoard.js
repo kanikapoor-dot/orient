@@ -1,15 +1,12 @@
 import React from "react";
-import "./homepage.css";
-import {
-  FaUserCircle,
-  FaBookMedical,
-  FaFileContract,
-} from "react-icons/fa";
+import "./DashBoard.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import DoctorProfileUpdate from "../DoctorProfileUpdate/DoctorProfileUpdate";
+import PatientProfileUpdate from "../PatientProfileUpdate/PatientProfileUpdate";
 
-export default class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import { FaUserCircle, FaBookMedical, FaFileContract } from "react-icons/fa";
+
+export default class DashBoard extends React.Component {
   render() {
     return (
       <div className="home-container">
@@ -37,8 +34,7 @@ export default class HomePage extends React.Component {
             </ul>
           </div>
         </div>
-        <div className="bodySection">
-          <h1>Homepage</h1>
+        <div className="bodySection">          
         </div>
       </div>
     );

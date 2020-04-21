@@ -5,11 +5,13 @@ import Register from "./components/register/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DoctorProfileUpdate from "./components/DoctorProfileUpdate/DoctorProfileUpdate";
 import PatientProfileUpdate from "./components/PatientProfileUpdate/PatientProfileUpdate"
-import Homepage from "./components/homepage/homepage";
+import Homepage from "./components/HomePage/HomePage";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Router>
         <Switch>
           <Route path="/" exact component={Homepage} />
