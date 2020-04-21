@@ -1,7 +1,7 @@
 import React from "react";
-import "./DocterProfileUpd.css";
+import "./DoctorProfileUpd.css";
 
-export default class DocterProfileUpdate extends React.Component {
+export default class DoctorProfileUpdate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

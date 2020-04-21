@@ -32,7 +32,7 @@ export default class Register extends React.Component {
     })
       .then((respo) => respo.json())
       .then((res) => {
-        if (res.name == "OrientDB.RequestError") {
+        if (res.name === "OrientDB.RequestError") {
           alert("Email already exit!");
         } else {
           this.setState({ isLoggedIn: !this.state.isLoggedIn });
@@ -105,17 +105,17 @@ export default class Register extends React.Component {
                 />
                 <label>Patient</label>
               </div>
-              <div className="rad-docter">
+              <div className="rad-doctor">
                 <input
                   type="radio"
                   name="usertype"
-                  id="docter"
-                  value="docter"
+                  id="doctor"
+                  value="doctor"
                   onClick={(e) => {
                     this.setState({ usertype: e.target.value });
                   }}
                 />
-                <label>Docter</label>
+                <label>Doctor</label>
               </div>
             </div>
 
