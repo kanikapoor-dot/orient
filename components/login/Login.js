@@ -30,7 +30,7 @@ export default class Login extends React.Component {
     })
       .then((responser) => responser.json())
       .then((res) => {
-        if (res.err) {
+        if (res.length == 0) {
           console.log(res)
           alert("Username Password Failed!");
         } else {

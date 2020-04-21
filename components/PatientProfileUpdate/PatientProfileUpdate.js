@@ -45,8 +45,8 @@ export default class PatientProfileUpdate extends React.Component {
             <input
               type="text"
               placeholder="Looking for"
-              name="specialist"
-              id="specialist"
+              name="looking for"
+              id="looking for"
             />
             <input 
             type="submit" 
