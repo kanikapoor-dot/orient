@@ -7,6 +7,8 @@
     position: fixed;
     width: 100%;
     z-index: 7;
+    top: 0;
+
 }
 
 .navbar > ul {
@@ -17,13 +19,21 @@
 }
 
 
-.navbar > ul > li {
+li {
     float: left;
     margin: 10px 20px;
     padding: 10px;
 }
 
-.navbar > ul > li:hover {
+.link-style {
+    padding: 10px;
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+
+.link-style:hover {
+    color: blue;
     background-color: whitesmoke;
-    color: rgb(99, 46, 197);
 }
