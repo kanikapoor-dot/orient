@@ -11,7 +11,8 @@ class Header extends React.Component {
 
   logout(e) {
     e.preventDefault()
-    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("usertype");
     this.props.history.push(`/`)
   }
 
@@ -49,11 +50,6 @@ class Header extends React.Component {
           </Link>
         </li>
         <li>
-          <Link className="link-style" to="/">
-            Find Doctors
-          </Link>
-        </li>
-        <li>
           <Link className="link-style" to="/profile">
             Profile
           </Link>
@@ -70,7 +66,7 @@ class Header extends React.Component {
       <div className="home-contain">
         <header className="myHeader">
           <nav className="navbar">
-            {localStorage.isLoggedIn ? userlinks : guestlinks}</nav>
+            {localStorage.userToken ? userlinks : guestlinks}</nav>
         </header>
       </div>
     );

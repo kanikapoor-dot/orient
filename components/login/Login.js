@@ -1,6 +1,6 @@
 import React from "react";
 import './Login.css'
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -10,7 +10,6 @@ export default class Login extends React.Component {
       email: "",
       password: "",
       usertype:"",
-      isLoggedIn ,
     };
   }
 
@@ -33,13 +32,11 @@ export default class Login extends React.Component {
       .then((responser) => responser.json())
       .then((res) => {
         if (res.length === 0) {
-          console.log(res)
           alert("Username Password Failed!");
         } else {
-          console.log(res);
-          this.setState({isLoggedIn: true})
-          localStorage.setItem("isLoggedIn",this.state.isLoggedIn)
-          this.props.history.push(`/`)
+          localStorage.setItem("userToken",JSON.stringify(res[0]))
+          localStorage.setItem("usertype",this.state.usertype)
+          this.props.history.push(`/profile`)
         }
       })
       .catch((err) => console.log(err));
