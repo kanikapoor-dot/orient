@@ -54,6 +54,11 @@ class Header extends React.Component {
           </Link>
         </li>
         <li>
+          <Link className="link-style" to="/profile">
+            Profile
+          </Link>
+        </li>
+        <li>
           <Link className="link-style" to="/" onClick={this.logout.bind(this)}>
             Logout
           </Link>
