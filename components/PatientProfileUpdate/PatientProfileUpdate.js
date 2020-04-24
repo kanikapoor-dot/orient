@@ -4,12 +4,13 @@ import "./PatientProfileUpdate.css";
 export default class PatientProfileUpdate extends React.Component {
   constructor(props) {
     super(props);
+    const data = JSON.parse(localStorage.getItem("userToken"))
     this.state = {
-      username: "",
-      firstname: "",
-      lastname: "",
-      lookingfor: "",
-      email: localStorage.getItem("userToken"),
+      username: data.username,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      lookingfor: data.lookfor,
+      email: data.email,
       usertype: localStorage.getItem("usertype"),
       storeData: {},
     };
@@ -20,33 +21,31 @@ export default class PatientProfileUpdate extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  componentDidMount(){
-    this.getUserData()
+  componentDidMount() {
+    this.getUserData();
   }
 
-
- 
   getUserData = () => {
     const body = JSON.stringify({
       email: this.state.email,
       usertype: this.state.usertype,
-    })
+    });
 
-    fetch("http://localhost:4000/profile",{
+    fetch("http://localhost:4000/profile", {
       method: "POST",
-      headers:{
-        "Content-type": "application/json"
+      headers: {
+        "Content-type": "application/json",
       },
-      body
+      body,
     })
-    .then(respon => respon.json())
-    .then(resp => {
-      this.setState({storeData: resp[0]})
-      console.log(this.state.storeData)
-    })
-    .catch(err => console.log(err))
-  }
-
+      .then((respon) => respon.json())
+      .then((resp) => {
+        localStorage.setItem("userToken",JSON.stringify(resp[0]))
+        this.setState({ storeData: resp[0] });
+        console.log(this.state.storeData);
+      })
+      .catch((err) => console.log(err));
+  };
 
   submitPatientUpdate = (e) => {
     e.preventDefault();
@@ -71,6 +70,7 @@ export default class PatientProfileUpdate extends React.Component {
       .then((res) => {
         console.log(res);
         alert("Update Successfull");
+        this.props.history.push('/')
       })
       .catch((err) => console.log(err));
   };
@@ -84,25 +84,35 @@ export default class PatientProfileUpdate extends React.Component {
             <input
               type="text"
               name="firstname"
-              placeholder={this.state.storeData.firstname ? this.state.storeData.firstname : "First Name"}
+              placeholder={
+                this.state.storeData.firstname
+                  ? this.state.storeData.firstname
+                  : "First Name"
+              }
               id="firstname"
               onChange={this.onChange}
             />
             <input
               type="text"
               name="lastname"
-              placeholder={this.state.storeData.lastname ? this.state.storeData.lastname : "Last Name"}
+              placeholder={
+                this.state.storeData.lastname
+                  ? this.state.storeData.lastname
+                  : "Last Name"
+              }
               id="lastname"
               onChange={this.onChange}
-             
             />
             <input
               type="text"
               name="username"
-              placeholder={this.state.storeData.username ? this.state.storeData.username : "User Name"}
+              placeholder={
+                this.state.storeData.username
+                  ? this.state.storeData.username
+                  : "User Name"
+              }
               id="username"
               onChange={this.onChange}
-             
             />
             <input
               type="text"
@@ -113,11 +123,14 @@ export default class PatientProfileUpdate extends React.Component {
             />
             <input
               type="text"
-              placeholder={this.state.storeData.lookfor ? this.state.storeData.lookfor : "Need Specialist For" }
+              placeholder={
+                this.state.storeData.lookfor
+                  ? this.state.storeData.lookfor
+                  : "Need Specialist For"
+              }
               name="lookingfor"
               id="looking for"
               onChange={this.onChange}
-              
             />
             <input
               type="submit"

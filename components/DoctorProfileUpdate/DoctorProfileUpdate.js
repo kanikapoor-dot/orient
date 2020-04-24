@@ -5,23 +5,23 @@ export default class DoctorProfileUpdate extends React.Component {
   constructor(props) {
     super(props);
 
-  
+    const data = JSON.parse(localStorage.getItem("userToken"))
     this.state = {
-      username: '',
-      firstname: '',
-      lastname: '',
-      imr: '',
-      hospitalname: '',
-      address: '',
-      specialist: '',
-      openat: '',
-      closeat: '',
-      email: localStorage.getItem("userToken"),
+      username: data.username,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      imr: data.imr,
+      hospital_name: data.hospital_name,
+      address: data.address,
+      specialist: data.specialist,
+      openat: data.openat,
+      closeat: data.closeat,
+      email: data.email,
       usertype: localStorage.getItem("usertype"),
       storeData: {},
     };
     
-    this.onChange = this.onChange.bind(this)
+
     this.submitDocterUpdate = this.submitDocterUpdate.bind(this);
   }
   componentDidMount(){
@@ -45,6 +45,7 @@ export default class DoctorProfileUpdate extends React.Component {
     })
     .then(respon => respon.json())
     .then(resp => {
+      localStorage.setItem("userToken",JSON.stringify(resp[0]))
       this.setState({storeData: resp[0]})
       console.log(this.state.storeData)
     })
@@ -56,6 +57,7 @@ export default class DoctorProfileUpdate extends React.Component {
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(e.target.value)
   };
 
   submitDocterUpdate = (e) => {
@@ -63,11 +65,11 @@ export default class DoctorProfileUpdate extends React.Component {
     e.preventDefault();
     
     const body = JSON.stringify({
-      username: this.state.firstname,
+      username: this.state.username,
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       imr: this.state.imr,
-      hospitalname: this.state.hospitalname,
+      hospital_name: this.state.hospital_name,
       address: this.state.address,
       specialist: this.state.specialist,
       openat: this.state.openat,
@@ -75,6 +77,8 @@ export default class DoctorProfileUpdate extends React.Component {
       usertype: this.state.usertype,
       email: this.state.email,
     });
+
+    console.log(body)
 
     fetch("http://localhost:4000/update_profile", {
       method: "POST",
@@ -86,7 +90,8 @@ export default class DoctorProfileUpdate extends React.Component {
       .then((reponse) => reponse.json)
       .then((res) => {
         console.log(res)
-        alert("Update Successfull! LogOut and Login again to see effect")
+        alert("Update Successfull!")
+        this.props.history.push('/')
       })
       .catch((err) => console.log(err));
   };
@@ -133,7 +138,7 @@ export default class DoctorProfileUpdate extends React.Component {
             />
             <input
               type="text"
-              name="hospitalname"
+              name="hospital_name"
               placeholder={this.state.storeData.hospital_name ? this.state.storeData.hospital_name : "Hospital Name"}
               onChange={this.onChange}
             />

@@ -33,7 +33,7 @@ export default class Login extends React.Component {
         if (res.length === 0) {
           alert("Username Password Failed!");
         } else {
-          localStorage.setItem("userToken",res[0].email)
+          localStorage.setItem("userToken",JSON.stringify(res[0]))
           localStorage.setItem("usertype",this.state.usertype)
           this.props.history.push(`/profile`)
         }
