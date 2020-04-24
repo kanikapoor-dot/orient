@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
-    let isLoggedIn =false;
     this.state = {
       email: "",
       password: "",
@@ -34,7 +33,7 @@ export default class Login extends React.Component {
         if (res.length === 0) {
           alert("Username Password Failed!");
         } else {
-          localStorage.setItem("userToken",JSON.stringify(res[0]))
+          localStorage.setItem("userToken",res[0].email)
           localStorage.setItem("usertype",this.state.usertype)
           this.props.history.push(`/profile`)
         }
@@ -42,11 +41,6 @@ export default class Login extends React.Component {
       .catch((err) => console.log(err));
 
   };
-
-  
-
-
-
   render() {
 
     return (

@@ -5,13 +5,14 @@ export default class PatientProfileUpdate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.props.userval.username,
-      firstname: this.props.userval.firstname,
-      lastname: this.props.userval.lastname,
-      lookingfor: this.props.userval.lookfor,
-      email: this.props.userval.email,
-      usertype: localStorage.getItem("usertype")
-    }
+      username: "",
+      firstname: "",
+      lastname: "",
+      lookingfor: "",
+      email: localStorage.getItem("userToken"),
+      usertype: localStorage.getItem("usertype"),
+      storeData: {},
+    };
     this.submitPatientUpdate = this.submitPatientUpdate.bind(this);
   }
 
@@ -19,10 +20,37 @@ export default class PatientProfileUpdate extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitPatientUpdate = (e) => {
+  componentDidMount(){
+    this.getUserData()
+  }
 
+
+ 
+  getUserData = () => {
+    const body = JSON.stringify({
+      email: this.state.email,
+      usertype: this.state.usertype,
+    })
+
+    fetch("http://localhost:4000/profile",{
+      method: "POST",
+      headers:{
+        "Content-type": "application/json"
+      },
+      body
+    })
+    .then(respon => respon.json())
+    .then(resp => {
+      this.setState({storeData: resp[0]})
+      console.log(this.state.storeData)
+    })
+    .catch(err => console.log(err))
+  }
+
+
+  submitPatientUpdate = (e) => {
     e.preventDefault();
-    
+
     const body = JSON.stringify({
       username: this.state.username,
       firstname: this.state.firstname,
@@ -41,8 +69,8 @@ export default class PatientProfileUpdate extends React.Component {
     })
       .then((reponse) => reponse.json)
       .then((res) => {
-        console.log(res)
-        alert("Update Successfull! LogOut and Login again to see effect")
+        console.log(res);
+        alert("Update Successfull");
       })
       .catch((err) => console.log(err));
   };
@@ -56,47 +84,47 @@ export default class PatientProfileUpdate extends React.Component {
             <input
               type="text"
               name="firstname"
-              placeholder="First Name"
+              placeholder={this.state.storeData.firstname ? this.state.storeData.firstname : "First Name"}
               id="firstname"
               onChange={this.onChange}
-              value={this.state.firstname}
             />
             <input
               type="text"
               name="lastname"
-              placeholder="Last Name"
+              placeholder={this.state.storeData.lastname ? this.state.storeData.lastname : "Last Name"}
               id="lastname"
               onChange={this.onChange}
-              value={this.state.lastname}
+             
             />
             <input
               type="text"
               name="username"
+              placeholder={this.state.storeData.username ? this.state.storeData.username : "User Name"}
               id="username"
               onChange={this.onChange}
-              value={this.state.username}
+             
             />
             <input
               type="text"
               name="email"
-              value={this.state.email}
+              placeholder={this.state.email}
               id="email"
               disabled
             />
             <input
               type="text"
-              placeholder="Need Specialist For"
+              placeholder={this.state.storeData.lookfor ? this.state.storeData.lookfor : "Need Specialist For" }
               name="lookingfor"
               id="looking for"
               onChange={this.onChange}
-              value={this.state.lookingfor}
+              
             />
-            <input 
-            type="submit" 
-            value="Update Profile" 
-            name="updateProfile" 
-            id="updateProfile"
-            onClick={this.submitPatientUpdate}
+            <input
+              type="submit"
+              title="Update Profile"
+              name="updateProfile"
+              id="updateProfile"
+              onClick={this.submitPatientUpdate}
             />
           </form>
         </div>
