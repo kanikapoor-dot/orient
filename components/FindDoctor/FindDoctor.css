@@ -1,0 +1,12 @@
+.finddoc-container {
+    margin: 60px auto 0px auto;
+    background-image: linear-gradient(rgb(54, 52, 52),rgb(206, 120, 120));
+    padding: 20px;
+}
+.list-container{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    grid-gap: 20px;
+    justify-items: center;
+}

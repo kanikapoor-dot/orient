@@ -7,6 +7,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import DoctorProfileUpdate from './components/DoctorProfileUpdate/DoctorProfileUpdate'
 import PatientProfileUpdate from './components/PatientProfileUpdate/PatientProfileUpdate'
 import HealthFeeds from "./components/healthfeeds/HealthFeeds";
+import FindDocter from "./components/FindDoctor/FindDoctor";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <NavigationBar />        
         <Route path="/" exact component={HealthFeeds} />
         <Switch>
+          <Route path="/find_doctor" exact component={FindDocter} />
           <Route path="/docter_profile_update" exact component={DoctorProfileUpdate} />
           <Route path="/patient_profile_update" exact component={PatientProfileUpdate} />
           <Route path="/register" exact component={Register} />

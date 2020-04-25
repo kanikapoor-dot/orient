@@ -20,7 +20,7 @@ class Header extends React.Component {
               </Link>
             </li>
             <li>
-              <Link className="link-style" to="/">
+              <Link className="link-style" to="/find_doctor">
                 Find Doctors
               </Link>
             </li>
@@ -55,7 +55,7 @@ class Header extends React.Component {
               <Link to="/patient_records" className="link-style">Patient Records</Link>
             </li>
             <li>
-              <Link to="/oppoinments" className="link-style">Oppoinments</Link>
+              <Link to="/Appoinments" className="link-style">Appoinments</Link>
             </li>
             <li>
               <Link className="link-style" to="#" onClick={this.logout.bind(this)}>
@@ -80,10 +80,15 @@ class Header extends React.Component {
               <Link to="/patient_profile_update" className="link-style">Profile Update</Link>
             </li>
             <li>
+              <Link className="link-style" to="/find_doctor">
+                Find Doctors
+              </Link>
+            </li>
+            <li>
               <Link to="/track_records" className="link-style">Track Records</Link>
             </li>
             <li>
-              <Link to="/oppoinments" className="link-style">Oppoinments</Link>
+              <Link to="/Appoinments" className="link-style">Appoinments</Link>
             </li>
             <li>
               <Link className="link-style" to="#" onClick={this.logout.bind(this)}>

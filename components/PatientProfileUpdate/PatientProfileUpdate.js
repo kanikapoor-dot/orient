@@ -15,7 +15,6 @@ export default class PatientProfileUpdate extends React.Component {
       storeData: {},
     };
 
-    console.log(data)
     this.submitPatientUpdate = this.submitPatientUpdate.bind(this);
   }
 

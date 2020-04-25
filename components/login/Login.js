@@ -35,7 +35,7 @@ export default class Login extends React.Component {
         } else {
           localStorage.setItem("userToken",JSON.stringify(res[0]))
           localStorage.setItem("usertype",this.state.usertype)
-          this.props.history.push(`/profile`)
+          this.props.history.push(`/`)
         }
       })
       .catch((err) => console.log(err));
