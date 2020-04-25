@@ -4,7 +4,6 @@ import "./DoctorProfileUpd.css";
 export default class DoctorProfileUpdate extends React.Component {
   constructor(props) {
     super(props);
-
     const data = JSON.parse(localStorage.getItem("userToken"))
     this.state = {
       username: data.username,
@@ -21,7 +20,6 @@ export default class DoctorProfileUpdate extends React.Component {
       storeData: {},
     };
     
-
     this.submitDocterUpdate = this.submitDocterUpdate.bind(this);
   }
   componentDidMount(){
@@ -47,7 +45,6 @@ export default class DoctorProfileUpdate extends React.Component {
     .then(resp => {
       localStorage.setItem("userToken",JSON.stringify(resp[0]))
       this.setState({storeData: resp[0]})
-      console.log(this.state.storeData)
     })
     .catch(err => console.log(err))
   }
@@ -57,14 +54,11 @@ export default class DoctorProfileUpdate extends React.Component {
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value)
   };
 
   submitDocterUpdate = (e) => {
-
     e.preventDefault();
-    
-    const body = JSON.stringify({
+      const body = JSON.stringify({
       username: this.state.username,
       firstname: this.state.firstname,
       lastname: this.state.lastname,
@@ -77,8 +71,6 @@ export default class DoctorProfileUpdate extends React.Component {
       usertype: this.state.usertype,
       email: this.state.email,
     });
-
-    console.log(body)
 
     fetch("http://localhost:4000/update_profile", {
       method: "POST",
@@ -108,6 +100,7 @@ export default class DoctorProfileUpdate extends React.Component {
               placeholder={this.state.storeData.firstname ? this.state.storeData.firstname : "First Name"}
               id="firstname"
               onChange={this.onChange}
+              required
             />
             <input
               type="text"
@@ -115,6 +108,7 @@ export default class DoctorProfileUpdate extends React.Component {
               placeholder={this.state.storeData.lastname ? this.state.storeData.lastname : "Last Name"}
               id="lastname"
               onChange={this.onChange}
+              required
             />
             <input
               type="text"
@@ -122,6 +116,7 @@ export default class DoctorProfileUpdate extends React.Component {
               placeholder = {this.state.storeData.username ? this.state.storeData.username : "User Name"}
               onChange={this.onChange}
               id="username"
+              required
             />
             <input
               type="text"
@@ -135,19 +130,21 @@ export default class DoctorProfileUpdate extends React.Component {
               name="imr"
               placeholder={this.state.storeData.imr ? this.state.storeData.imr : "Indian Medical Registration No"}
               onChange={this.onChange}
+              required
             />
             <input
               type="text"
               name="hospital_name"
               placeholder={this.state.storeData.hospital_name ? this.state.storeData.hospital_name : "Hospital Name"}
               onChange={this.onChange}
+              required
             />
             <textarea
-              placeholder="Enter Your Hospital Address"
               name="address"
               id="address"
               onChange={this.onChange}
               placeholder= {this.state.storeData.address ? this.state.storeData.address : "Address"}
+              required
             />
             <br />
             <label>Working Hours :</label>
@@ -158,6 +155,7 @@ export default class DoctorProfileUpdate extends React.Component {
                 name="openat"
                 onChange={this.onChange}
                 placeholder= {this.state.storeData.openat ? this.state.storeData.openat : "00:00"}
+                required
               />
               <label>To:</label>
               <input
@@ -165,15 +163,16 @@ export default class DoctorProfileUpdate extends React.Component {
                 name="closeat"
                 onChange={this.onChange}
                 placeholder= {this.state.storeData.closeat ? this.state.storeData.closeat : "00:00"}
+                required
               />      
             </div>
             <input
               type="text"
-              placeholder="Specialist"
               name="specialist"
               id="specialist"
               onChange={this.onChange}
               placeholder= {this.state.storeData.specialist ? this.state.storeData.specialist : "Specialist"}
+              required
             />
             <input
               type="submit"

@@ -16,7 +16,7 @@ class Header extends React.Component {
           <ul>
             <li>
               <Link className="link-style" to="/">
-                Health Facts
+                Health Feeds
               </Link>
             </li>
             <li>
@@ -45,7 +45,7 @@ class Header extends React.Component {
           <ul>
             <li>
               <Link className="link-style" to="/">
-                Health Facts
+                Health Feeds
               </Link>
             </li>
             <li>
@@ -73,7 +73,7 @@ class Header extends React.Component {
           <ul>
             <li>
               <Link className="link-style" to="/">
-                Health Facts
+                Health Feeds
               </Link>
             </li>
             <li>

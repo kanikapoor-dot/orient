@@ -6,9 +6,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(7414.jpg);
+    /* background-image: url(7414.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;   
+    background-size: 100% 100%;    */
+    margin-top: 60px;
 }
 
 h1 {

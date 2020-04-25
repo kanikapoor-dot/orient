@@ -82,7 +82,7 @@ export default class Register extends React.Component {
               required
             />
             <input
-              type="text"
+              type="email"
               placeholder="abc@gmail.com"
               id="email"
               name="email"

@@ -1,0 +1,39 @@
+.feedCard {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: auto;
+    margin: 20px 10%;
+    box-shadow: 1px 1px 10px 0px steelblue;
+}
+
+.feedTitle {
+    text-align: center;
+    color: rgb(8, 51, 71);
+    padding: 10px;
+    font-size: 25px;
+}
+
+.feedAuthor {
+    text-align: end;
+    padding: 10px;
+    font-size: 12px;
+    color: olive;
+}
+
+.feedArticle {
+    text-align: justify;
+    color: rgb(83, 81, 81);
+    font-size: 18px;
+    padding: 20px;
+    
+}
+
+hr {
+    margin: 0 10%;
+    border:1px solid rgb(104, 104, 129) ;
+}
+
+.feedArticle > a {
+    color: rgb(139, 15, 15);
+}

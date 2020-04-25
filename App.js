@@ -6,12 +6,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import DoctorProfileUpdate from './components/DoctorProfileUpdate/DoctorProfileUpdate'
 import PatientProfileUpdate from './components/PatientProfileUpdate/PatientProfileUpdate'
+import HealthFeeds from "./components/healthfeeds/HealthFeeds";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <NavigationBar />        
+        <Route path="/" exact component={HealthFeeds} />
         <Switch>
           <Route path="/docter_profile_update" exact component={DoctorProfileUpdate} />
           <Route path="/patient_profile_update" exact component={PatientProfileUpdate} />

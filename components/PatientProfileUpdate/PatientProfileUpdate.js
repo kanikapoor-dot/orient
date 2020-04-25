@@ -14,6 +14,8 @@ export default class PatientProfileUpdate extends React.Component {
       usertype: localStorage.getItem("usertype"),
       storeData: {},
     };
+
+    console.log(data)
     this.submitPatientUpdate = this.submitPatientUpdate.bind(this);
   }
 
@@ -42,7 +44,6 @@ export default class PatientProfileUpdate extends React.Component {
       .then((resp) => {
         localStorage.setItem("userToken",JSON.stringify(resp[0]))
         this.setState({ storeData: resp[0] });
-        console.log(this.state.storeData);
       })
       .catch((err) => console.log(err));
   };
@@ -68,7 +69,6 @@ export default class PatientProfileUpdate extends React.Component {
     })
       .then((reponse) => reponse.json)
       .then((res) => {
-        console.log(res);
         alert("Update Successfull");
         this.props.history.push('/')
       })
