@@ -7,15 +7,36 @@ class FindDocter extends React.Component {
     super(props);
     this.state = {
       batchCard: [],
+      search_doc: '',
     };
   }
   componentDidMount() {
-    this.getDocList();
+    this.getDocList(this.state.search_doc);
   }
 
-  getDocList() {
+  onChange(e){
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  submitSearch(e){
+    e.preventDefault()
+    this.getDocList(this.state.search_doc)
+  }
+
+  getDocList(search_doc) {
     const temp = [];
-    fetch("http://localhost:4000/find_doc")
+
+    const body = JSON.stringify({
+      search_doc: search_doc
+    })
+
+    fetch("http://localhost:4000/find_doc",{
+      method: "POST",
+      headers:{
+        "Content-type":"application/json"
+      },
+      body
+    })
     .then(res => res.json())
       .then((resp) => {
         
@@ -34,9 +55,23 @@ class FindDocter extends React.Component {
   render() {
     return (
       <div className="finddoc-container">
-          <div className="list-container">
+        <header className="search-doc">
+          <input type="text"
+          placeholder="Find doctors by specialist eg.Dental"
+          name="search_doc"
+          id="search_doc"
+          onChange = {this.onChange.bind(this)}
+          />
+          <input type="submit" 
+          title="Search"
+          name="submit"
+          value="Search"
+          onClick={this.submitSearch.bind(this)}
+          />
+        </header>
+          <main className="list-container">
         {this.state.batchCard ? this.state.batchCard : <h1>Loading...</h1>}
-        </div>
+        </main>
       </div>
     );
   }

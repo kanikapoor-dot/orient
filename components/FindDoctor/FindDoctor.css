@@ -1,10 +1,37 @@
 .finddoc-container {
-    margin: 60px auto 0px auto;
-    background-image: linear-gradient(rgb(54, 52, 52),rgb(206, 120, 120));
-    padding: 20px;
+    background-color: black;
+    width: 100%;
+    position: relative;
+    margin-top: 60px;
 }
+
+.search-doc {
+    display: flex;
+    position: fixed;
+    background-color: black;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 7;
+}
+
+.search-doc > input[type=text] {
+    color: rgb(11, 65, 97);
+    font-weight: bold;
+    width: 50%;
+}
+
+
+.search-doc > input[type=submit] {
+    width: auto;
+}
+
+
 .list-container{
-    margin: auto;
+    position: relative;
+    top:60px;
+    background-image: linear-gradient(rgb(54, 52, 52),rgb(206, 120, 120));
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
     grid-gap: 20px;

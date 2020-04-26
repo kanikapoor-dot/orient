@@ -55,7 +55,7 @@ input[type=submit] {
 
 input:focus {
     outline: none;
-    border-bottom: rgb(56, 56, 165) 1px solid;
+    border-bottom: rgb(11, 65, 97) 1px solid;
 }
 
 h1 {
