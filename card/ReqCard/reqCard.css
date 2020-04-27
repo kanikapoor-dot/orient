@@ -1,9 +1,8 @@
 .reqcard {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     border-radius: 50px;
-    background-color: rgba(192, 189, 189, 0.658);
+    justify-content: space-between;
     align-items: center;
     margin: 7px auto;
     padding: 0px 20px;
@@ -22,7 +21,7 @@
     border: none;
     border-radius: 5px;
     margin: 5px;
-    font-size: large;
+    font-size: small;
 }
 
 .reqbutts > .reject {
@@ -32,5 +31,17 @@
     border: none;
     border-radius: 5px;
     margin: 5px;
-    font-size: large;
+    font-size: small;
+}
+
+.schedule> input[type=date] {
+    width: 250px;
+    color: black;
+    padding: 0%;
+}
+
+.schedule> input[type=time] {
+    width: 150px;
+    color: black;
+    padding: 0%;
 }

@@ -9,6 +9,7 @@ import PatientProfileUpdate from './components/PatientProfileUpdate/PatientProfi
 import HealthFeeds from "./components/healthfeeds/HealthFeeds";
 import FindDocter from "./components/FindDoctor/FindDoctor";
 import DoctorAppointPanel from "./components/Appoinment/DoctorAppointPanel";
+import PatientAppointPanel from "./components/Appoinment/PatientAppointPanel";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
           <Route path="/doc_appoint_list" exact component={DoctorAppointPanel} />
+          <Route path="/pat_appoint_status" exact component={PatientAppointPanel} />
         </Switch>
       </Router>
     </div>

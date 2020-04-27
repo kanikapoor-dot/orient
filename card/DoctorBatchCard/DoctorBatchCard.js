@@ -10,7 +10,7 @@ class DocterBatchCard extends React.Component {
   processRequest(){
     const patient = JSON.parse(localStorage.getItem("userToken"))
     let d = new Date();
-    let date = d.toLocaleTimeString();
+    
 
     if(patient){
       const body = JSON.stringify({
@@ -18,7 +18,8 @@ class DocterBatchCard extends React.Component {
         firstname:patient.firstname,
         lastname: patient.lastname,
         doctorid: this.props.pro.email,
-        requesttime: date,
+        requesttime: d.toLocaleTimeString(),
+        dateofreq: d.toDateString(),
         status: "request"
       })
 

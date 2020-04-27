@@ -1,0 +1,26 @@
+.patient-panel {
+    margin:80px auto 0px auto;
+    width: 80%;
+    box-shadow: 0px 0px 10px rgb(11, 65, 97);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.patrequests {
+    box-shadow: 0px 0px 5px grey;
+    width: 90%;
+    padding: 10px;
+    margin: 0px auto;
+}
+
+.patrequests > h3 {
+    color: slateblue;
+    font-size: larger;
+    margin-bottom:10px;
+}
+
+.patrequests > h2 {
+    color: grey;
+    text-align: center;
+    font-size: x-large;
+}

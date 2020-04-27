@@ -1,0 +1,15 @@
+.sche {
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+    justify-content: space-between;
+    background-color: rgba(192, 189, 189, 0.658);
+    align-items: center;
+    margin: 20px auto;
+    padding: 5px 20px;
+}
+
+.sche > h4 {
+    color: indigo;
+    font-size: larger;
+}

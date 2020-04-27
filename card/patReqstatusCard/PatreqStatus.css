@@ -1,0 +1,30 @@
+.patreqcard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 50px;
+    background-color: rgba(192, 189, 189, 0.658);
+    align-items: center;
+    margin: 7px auto;
+    padding: 5px 20px;
+}
+
+.success{
+    padding: 5px;
+    color: whitesmoke;
+    background-color: rgb(56, 161, 56);
+}
+
+
+
+.cancl {
+    padding: 5px;
+    color: whitesmoke;
+    background-color: rgb(160, 34, 34);
+}
+
+.waiting {
+    padding: 5px;
+    color: whitesmoke;
+    background-color: grey;
+}

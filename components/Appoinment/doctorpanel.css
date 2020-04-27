@@ -1,6 +1,6 @@
 .doctor-panel {
     margin:80px auto 0px auto;
-    width: 60%;
+    width: 80%;
     box-shadow: 0px 0px 10px rgb(11, 65, 97);
     border-radius: 5px;
     padding: 20px;
@@ -8,13 +8,13 @@
 
 .requests {
     box-shadow: 0px 0px 5px grey;
-    width: 80%;
+    width: 90%;
     padding: 10px;
     margin: 0px auto;
 }
 
 .requests > h3 {
-    color: slateblue;
+    color: rgb(11, 65, 97);
     font-size: larger;
     margin-bottom:10px;
 }
@@ -23,4 +23,33 @@
     color: grey;
     text-align: center;
     font-size: x-large;
+}
+
+.requests > hr{
+    border: 1px solid rgb(11, 65, 97);
+}
+
+.accepted {
+    box-shadow: 0px 0px 5px grey;
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.accepted > h3 {
+    color: rgb(11, 65, 97);
+    font-size: larger;
+    margin-bottom:10px;
+}
+
+.accepted > h2 {
+    color: grey;
+    text-align: center;
+    padding: 10px;
+    font-size: x-large;
+}
+
+
+.doctor-panel > .accepted >  hr {
+    border:1px solid rgb(11, 65, 97);
 }

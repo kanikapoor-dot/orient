@@ -88,7 +88,7 @@ class Header extends React.Component {
               <Link to="/track_records" className="link-style">Track Records</Link>
             </li>
             <li>
-              <Link to="/appoinments" className="link-style">Appoinments</Link>
+              <Link to="/pat_appoint_status" className="link-style">Appoinments</Link>
             </li>
             <li>
               <Link className="link-style" to="#" onClick={this.logout.bind(this)}>
