@@ -1,0 +1,26 @@
+.doctor-panel {
+    margin:80px auto 0px auto;
+    width: 60%;
+    box-shadow: 0px 0px 10px rgb(11, 65, 97);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.requests {
+    box-shadow: 0px 0px 5px grey;
+    width: 80%;
+    padding: 10px;
+    margin: 0px auto;
+}
+
+.requests > h3 {
+    color: slateblue;
+    font-size: larger;
+    margin-bottom:10px;
+}
+
+.requests > h2 {
+    color: grey;
+    text-align: center;
+    font-size: x-large;
+}

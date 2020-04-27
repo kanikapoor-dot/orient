@@ -1,0 +1,36 @@
+.reqcard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 50px;
+    background-color: rgba(192, 189, 189, 0.658);
+    align-items: center;
+    margin: 7px auto;
+    padding: 0px 20px;
+}
+
+
+.reqcard > h4 {
+    color: indigo;
+    font-size: larger;
+}
+
+.reqbutts > .accept {
+    background-color: seagreen;
+    color: whitesmoke;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: large;
+}
+
+.reqbutts > .reject {
+    background-color: rgb(194, 43, 43);
+    color: whitesmoke;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: large;
+}

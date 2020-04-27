@@ -48,3 +48,13 @@
     color: rgb(214, 219, 214);
     text-align: justify;
 }
+
+.get-appoin {
+    width: 40%;
+    margin-left: auto;
+    background-color: crimson;
+    color: whitesmoke;
+    padding: 5px;
+    border: none;
+
+}

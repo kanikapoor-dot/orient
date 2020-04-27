@@ -55,7 +55,7 @@ class Header extends React.Component {
               <Link to="/patient_records" className="link-style">Patient Records</Link>
             </li>
             <li>
-              <Link to="/Appoinments" className="link-style">Appoinments</Link>
+              <Link to="/doc_appoint_list" className="link-style">Appoinments</Link>
             </li>
             <li>
               <Link className="link-style" to="#" onClick={this.logout.bind(this)}>
@@ -88,7 +88,7 @@ class Header extends React.Component {
               <Link to="/track_records" className="link-style">Track Records</Link>
             </li>
             <li>
-              <Link to="/Appoinments" className="link-style">Appoinments</Link>
+              <Link to="/appoinments" className="link-style">Appoinments</Link>
             </li>
             <li>
               <Link className="link-style" to="#" onClick={this.logout.bind(this)}>
