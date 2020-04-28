@@ -12,7 +12,6 @@ class ReqCard extends React.Component {
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value });
-    console.log(e.target.value)
   };
 
   acceptAppoin(e) {
@@ -37,8 +36,7 @@ class ReqCard extends React.Component {
       body,
     })
       .then((res) => {
-        console.log(res);
-        alert("Scheduled Appoinment");
+        alert("Appoinment Scheduled!");
       })
       .catch((err) => console.log(err));
   }

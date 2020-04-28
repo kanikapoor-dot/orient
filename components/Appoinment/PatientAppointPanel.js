@@ -17,7 +17,6 @@ class PatientAppointPanel extends Component {
 
   async getUserReqDetail() {
     const temp = [];
-    console.log(this.state.data.email)
     const body = JSON.stringify({
         patientid : this.state.data.email
     })
@@ -31,9 +30,8 @@ class PatientAppointPanel extends Component {
       .then((res) => res.json())
       .then((resp) => {
         if (resp) {
-          console.log("tests", resp);
           resp.forEach((element) => {
-            const newTemp = <PatReqStatus key={element.doctorid} ele={element} />;
+            const newTemp = <PatReqStatus key={element.requesttime} ele={element} />;
             temp.push(newTemp);
           });
         } else {
@@ -43,7 +41,6 @@ class PatientAppointPanel extends Component {
         this.setState({ reqlist: temp });
       });
 
-      console.log(this.state.reqlist)
   }
 
   render() {

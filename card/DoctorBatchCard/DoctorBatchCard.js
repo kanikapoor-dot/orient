@@ -3,10 +3,7 @@ import "./DoctorBatchCard.css";
 import {withRouter} from 'react-router-dom'
 
 class DocterBatchCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  
+
   processRequest(){
     const patient = JSON.parse(localStorage.getItem("userToken"))
     let d = new Date();

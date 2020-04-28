@@ -17,14 +17,20 @@ class DoctorAppointPanel extends React.Component {
     this.getUserReqDetail();
     this.getScheduleDetail();
   }
+  
 
-  async getUserReqDetail() {
+  componentDidUpdate(){
+    this.getUserReqDetail();
+    this.getScheduleDetail();
+  }
+  
+  getUserReqDetail() {
     const temp = [];
     const body = JSON.stringify({
       doctorid: this.state.data.email,
     });
 
-    await fetch("http://localhost:4000/doc_appoint_req", {
+    fetch("http://localhost:4000/doc_appoint_req", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -34,9 +40,8 @@ class DoctorAppointPanel extends React.Component {
       .then((res) => res.json())
       .then((resp) => {
         if (resp) {
-          console.log("tests", resp);
           resp.forEach((element) => {
-            const newTemp = <ReqCard key={element.email} ele={element} />;
+            const newTemp = <ReqCard key={element.requesttime} ele={element} />;
             temp.push(newTemp);
           });
         } else {
@@ -47,13 +52,13 @@ class DoctorAppointPanel extends React.Component {
       });
   }
 
-  async getScheduleDetail() {
+  getScheduleDetail() {
     const temp = [];
     const body = JSON.stringify({
       doctorid: this.state.data.email,
     });
 
-    await fetch("http://localhost:4000/doc_schedule_list", {
+    fetch("http://localhost:4000/doc_schedule_list", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -64,7 +69,7 @@ class DoctorAppointPanel extends React.Component {
       .then((resp) => {
         if (resp) {
           resp.forEach((element) => {
-            const newTemp = <ScheduleList key={element.email} ele={element} />;
+            const newTemp = <ScheduleList key={element.requesttime} ele={element} />;
             temp.push(newTemp);
           });
         } else {

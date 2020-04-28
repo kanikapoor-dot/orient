@@ -23,13 +23,12 @@ class HealthFeeds extends Component {
         await fetch(url)
         .then(res => res.json())
         .then(resp => {
-            console.log(resp)
             result = resp.articles
         });
    
         if(result){
             result.forEach((feed) => {
-                const framed = <FeedCard key={feed.publishedAt} feeds={feed} />
+                const framed = <FeedCard key={feed.title} feeds={feed} />
                 feedholder.push(framed)
             })
         }else {

@@ -58,6 +58,7 @@ export default class Login extends React.Component {
               onChange={(e) => {
                 this.setState({ email: e.target.value });
               }}
+              autoComplete="on"
               required
             />
             <input
@@ -68,6 +69,7 @@ export default class Login extends React.Component {
               onChange={(e) => {
                 this.setState({ password: e.target.value });
               }}
+              autoComplete="on"
               required
             />
 
