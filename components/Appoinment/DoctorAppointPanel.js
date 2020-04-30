@@ -18,12 +18,6 @@ class DoctorAppointPanel extends React.Component {
     this.getScheduleDetail();
   }
   
-
-  componentDidUpdate(){
-    this.getUserReqDetail();
-    this.getScheduleDetail();
-  }
-  
   getUserReqDetail() {
     const temp = [];
     const body = JSON.stringify({
@@ -50,6 +44,7 @@ class DoctorAppointPanel extends React.Component {
 
         this.setState({ reqlist: temp });
       });
+      
   }
 
   getScheduleDetail() {

@@ -37,6 +37,7 @@ class ReqCard extends React.Component {
     })
       .then((res) => {
         alert("Appoinment Scheduled!");
+        window.location.reload(false)
       })
       .catch((err) => console.log(err));
   }
@@ -64,6 +65,7 @@ class ReqCard extends React.Component {
       .then((res) => {
         console.log(res);
         alert("Appoinment Rejected");
+        window.location.reload(false)
       })
       .catch((err) => console.log(err));
 
